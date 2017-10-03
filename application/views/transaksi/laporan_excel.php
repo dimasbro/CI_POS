@@ -1,0 +1,23 @@
+<table border="1">
+<tr>
+	<th>No</th>
+	<th>Tanggal Transaksi</th>
+	<th>Operator</th>
+	<th>Transaksi</th>
+</tr>
+<?php
+$no=1;
+$total = 0;
+foreach($record->result() as $r){
+echo "<tr>
+	<td width='10'>$no</td>
+	<td width='160'>$r->tanggal_transaksi</td>
+	<td>$r->nama_lengkap</td>
+	<td>$r->total</td>
+	</tr>";
+	$total = $total + $r->total;
+$no++;
+}
+?>
+<tr><td colspan="3">Total</td><td><?php echo $total ?></td></tr>
+</table>
